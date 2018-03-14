@@ -42,7 +42,5 @@ public class Order {
         if (type == "Buy" || type == "Sale")
             return true;
         return false;
-        }
-
     }
 }

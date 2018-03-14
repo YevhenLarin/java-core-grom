@@ -1,8 +1,6 @@
 package lesson6;
 
 public class Car {
-    //test git
-
     //1 fields
     int price;
     int yearOfManufacturing;

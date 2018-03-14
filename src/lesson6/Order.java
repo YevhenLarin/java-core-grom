@@ -38,14 +38,11 @@ public class Order {
     }
 
     public boolean isValidType() {
-        boolean a;
-        if (a = type == "Buy") {
-            return a;
-        } else {
-            if (a = type == "Sale")
-                return a;
-            else
-                return a;
+
+        if (type == "Buy" || type == "Sale")
+            return true;
+        return false;
         }
+
     }
 }

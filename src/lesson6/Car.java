@@ -1,8 +1,9 @@
 package lesson6;
 
 public class Car {
+    //test git
 
-    //1 fields - поля, свойства
+    //1 fields
     int price;
     int yearOfManufacturing;
     String color;
@@ -19,14 +20,13 @@ public class Car {
         this.ownerName = ownerName;
     }
 
-    //3 methods - поведение класса
+    //3 methods
     void startRun() {
         System.out.println("I am running....");
     }
 
     void stopRun() {
         System.out.println("I am stopping....");
-
     }
 
     void changeOwner(String newOwnerName) {

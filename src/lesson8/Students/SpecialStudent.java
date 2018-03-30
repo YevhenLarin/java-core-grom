@@ -1,4 +1,4 @@
-package lesson8.Students;
+package lesson8.students;
 
 public class SpecialStudent extends CollegeStudent {
     long secretKey;

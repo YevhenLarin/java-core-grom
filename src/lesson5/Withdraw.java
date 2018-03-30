@@ -20,11 +20,13 @@ public class Withdraw {
                 }else{
                     balances[clientIndex] -= amount;
                 }
-                break;
+                //break;
+                return balances[clientIndex];
             }
             clientIndex++;
         }
-        return balances[clientIndex];
+        //return balances[clientIndex];
+        return -1;
     }
 
 }

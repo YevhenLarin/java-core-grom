@@ -10,7 +10,7 @@ public class SortArray {
         System.out.println(Arrays.toString(sortDescending(array)));
     }
 
-    static int[] sortAscending(int[] array) {
+    public static int[] sortAscending(int[] array) {
     /*Внешний цикл каждый раз сокращает фрагмент массива,
       так как внутренний цикл каждый раз ставит в конец
       фрагмента максимальный элемент*/
@@ -29,7 +29,7 @@ public class SortArray {
         return array;
     }
 
-    static int[] sortDescending(int[] array) {
+    public static int[] sortDescending(int[] array) {
     /*Внешний цикл каждый раз сокращает фрагмент массива,
       так как внутренний цикл каждый раз ставит в конец
       фрагмента минимальный элемент*/

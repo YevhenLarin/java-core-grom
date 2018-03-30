@@ -7,12 +7,7 @@ public class Sum {
     }
 
     public static boolean compareSums(int a, int b, int c, int d) {
-        boolean n = sum(a, b) > sum(c, d);
-        /*if (sum(a, b) > sum(c, d))
-            return "true";
-        else
-            return "false";*/
-        return n;
+        return sum(a, b) > sum(c, d) ? true : false;
     }
 
     public static int sum(int from, int to) {

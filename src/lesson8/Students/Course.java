@@ -1,4 +1,4 @@
-package lesson8.Students;
+package lesson8.students;
 
 import java.util.Date;
 

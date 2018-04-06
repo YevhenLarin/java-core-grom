@@ -30,8 +30,7 @@ public class Order {
     }
 
     public boolean checkPrice() {
-        boolean a = price > 1000;
-        return a;
+        return price > 1000;
     }
 
     public boolean isValidType() {

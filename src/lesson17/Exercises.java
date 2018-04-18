@@ -1,4 +1,4 @@
-package lesson16;
+package lesson17;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
@@ -11,7 +11,7 @@ public class Exercises {
 
         System.out.println(Arrays.toString(countDuplicates(test, new String[]{"or", "some", "test"})));
 
-        String str = "Today is good day... Hello dpsd";
+        String str = "Today is good is day... Hello dpsd";
         //da -> PPPPPPPPP
         //[]
 

@@ -1,4 +1,4 @@
-package lesson16.homework;
+package lesson17.homework;
 
 import java.util.Arrays;
 
@@ -45,16 +45,18 @@ public class Solution {
         System.out.println(minWord(str5));
         System.out.println();
         System.out.println("mostCountedWords");
-        System.out.println(mostCountedWords(str));
-        System.out.println(mostCountedWords(str1));
-        System.out.println(mostCountedWords(str2));
-        System.out.println(mostCountedWords(str3));
-        System.out.println(mostCountedWords(str4));
-        System.out.println(mostCountedWords(str5));
+        System.out.println(mostCountedWord(str));
+        System.out.println(mostCountedWord(str1));
+        System.out.println(mostCountedWord(str2));
+        System.out.println(mostCountedWord(str3));
+        System.out.println(mostCountedWord(str4));
+        System.out.println(mostCountedWord(str5));
     }
 
     //метод для создания массива стрингов из слов входящего стринга
     private static String[] words(String input) {
+        if (input.isEmpty())
+            return null;
 
         String[] strings = input.trim().split(" ");
 
@@ -127,9 +129,9 @@ public class Solution {
     }
 
     //метод для поиска наиболее повторяемого слова во входящем стринге
-    public static String mostCountedWords(String input) {
+    public static String mostCountedWord(String input) {
 
-        if (input.isEmpty() || words(input) == null)
+        if (input == null || input.isEmpty() || words(input) == null)
             return null;
 
         //создаем массив стрингов из слов входящего стринга

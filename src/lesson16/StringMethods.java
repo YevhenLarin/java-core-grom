@@ -29,7 +29,7 @@ public class StringMethods {
         System.out.println(test);
         System.out.println(test.contains("mes"));
 
-        //делит стринг на на массив стрингов по заданному символу, при этом удаляя этот символ из стринга
+        //делит стринг на массив стрингов по заданному символу, при этом удаляя этот символ из стринга
         System.out.println(test);
         String phrase = "Hello there guys";
         System.out.println(Arrays.toString(phrase.split(" ")));

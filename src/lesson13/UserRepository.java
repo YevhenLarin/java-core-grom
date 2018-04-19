@@ -3,7 +3,7 @@ package lesson13;
 public class UserRepository {
     private User[] users = new User[10];
 
-//    public UserRepository(User[] users) {
+//    public userRepository(User[] users) {
 //        this.users = users;
 //    }
 

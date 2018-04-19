@@ -1,4 +1,4 @@
-package lesson15.homework.UserRepository;
+package lesson15.homework.userRepository;
 
 public class User {
     private long id;

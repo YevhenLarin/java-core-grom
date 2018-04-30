@@ -3,7 +3,7 @@ package lesson19.homework;
 import java.util.Arrays;
 
 public class Demo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         Controller controller = new Controller();
 
         File file1 = new File(11, "File1", "doc", 3);
@@ -42,7 +42,7 @@ public class Demo {
         System.out.println();
 
         //добавление файла
-        controller.put(st1, file8);
+        controller.put(st1, file1);
         System.out.println("st1 " + Arrays.toString(st1.getFiles()));
         System.out.println();
 
@@ -65,6 +65,5 @@ public class Demo {
         controller.transferAll(st1, st3);
         System.out.println("st1 " + Arrays.toString(st1.getFiles()));
         System.out.println("st3 " + Arrays.toString(st3.getFiles()));
-
     }
 }

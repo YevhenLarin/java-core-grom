@@ -19,7 +19,7 @@ public class TransactionDAO {
 //        не хватило места (InternalExceeded) +
 
         if (transaction == null)
-            throw new InternalServerException("Transaction is null. Can't be saved" );
+            throw new InternalServerException("Transaction is null. Can't be saved");
 
         validate(transaction);
 
@@ -47,7 +47,7 @@ public class TransactionDAO {
         if (sum > utils.getLimitTransactionsPerDayAmount())
             throw new LimitExceeded("Transaction limit per day amount exceed " + transaction.getId() + ". Can't be saved");
 
-        if (count > utils.getLimitTransactionsPerDayCount())
+        if (count + 1 > utils.getLimitTransactionsPerDayCount())
             throw new LimitExceeded("Transaction limit per day count exceed " + transaction.getId() + ". Can't be saved");
 
         boolean city = false;
@@ -90,7 +90,7 @@ public class TransactionDAO {
 
     }
 
-    Transaction[] transactionList(String city) throws Exception{
+    Transaction[] transactionList(String city) throws Exception {
 
         if (city == null)
             throw new InternalServerException("City is null");
@@ -111,7 +111,7 @@ public class TransactionDAO {
         return trCityList;
     }
 
-    Transaction[] transactionList(int amount) throws Exception{
+    Transaction[] transactionList(int amount) throws Exception {
 
         if (amount == 0)
             throw new InternalServerException("Amount is 0");

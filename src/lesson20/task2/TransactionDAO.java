@@ -35,30 +35,19 @@ public class TransactionDAO {
     private void validate(Transaction transaction) throws Exception {
 
         if (!checkAmount(transaction))
-            throw new LimitExceeded("T ransaction limit exceed " + transaction.getId() + ". Can't be saved");
+            throw new LimitExceeded("Transaction limit exceed " + transaction.getId() + ". Can't be saved");
 
-        int sum = 0;
-        int count = 0;
-        for (Transaction tr : getTransactionsPerDay(transaction.getDateCreated())) {
-            sum += tr.getAmount();
-            count++;
-        }
-
-        if (sum > utils.getLimitTransactionsPerDayAmount())
+        if (sum(transaction) > utils.getLimitTransactionsPerDayAmount())
             throw new LimitExceeded("Transaction limit per day amount exceed " + transaction.getId() + ". Can't be saved");
 
-        if (count + 1 > utils.getLimitTransactionsPerDayCount())
+        if (count(transaction) + 1 > utils.getLimitTransactionsPerDayCount())
             throw new LimitExceeded("Transaction limit per day count exceed " + transaction.getId() + ". Can't be saved");
 
         if (!checkCity(transaction))
             throw new BadRequestException("Transaction's city  " + transaction.getId() + ". Can't be saved");
 
-        int index = 0;
-        for (Transaction tr : transactions) {
-            if (tr == null)
-                index++;
-        }
-        if (index == 0)
+
+        if (!freePlace(transaction))
             throw new InternalServerException("Transaction " + transaction.getId() + " can't be saved because of out of space");
     }
 
@@ -158,7 +147,29 @@ public class TransactionDAO {
         return result;
     }
 
-    private boolean checkCity(Transaction transaction){
+    private boolean checkAmount(Transaction transaction) {
+        if (transaction.getAmount() <= utils.getLimitSimpleTransactionAmount())
+            return true;
+        return false;
+    }
+
+    private int sum(Transaction transaction) {
+        int sum = 0;
+        for (Transaction tr : getTransactionsPerDay(transaction.getDateCreated())) {
+            sum += tr.getAmount();
+        }
+        return sum;
+    }
+
+    private int count(Transaction transaction) {
+        int count = 0;
+        for (Transaction tr : getTransactionsPerDay(transaction.getDateCreated())) {
+            count++;
+        }
+        return count;
+    }
+
+    private boolean checkCity(Transaction transaction) {
         for (String str : utils.getCities()) {
             if (str.equals(transaction.getCity()))
                 return true;
@@ -166,9 +177,11 @@ public class TransactionDAO {
         return false;
     }
 
-    private boolean checkAmount (Transaction transaction){
-        if (transaction.getAmount() <= utils.getLimitSimpleTransactionAmount())
-            return true;
+    private boolean freePlace(Transaction transaction) {
+        for (Transaction tr : transactions) {
+            if (tr == null)
+                return true;
+        }
         return false;
     }
 }

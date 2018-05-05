@@ -8,9 +8,6 @@ public class Demo {
         Transaction tr2 = new Transaction(2, "Dnepr", 500, "222", TransactionType.INCOME, new Date());
         Transaction tr3 = new Transaction(3, "Odessa", 1000, "333", TransactionType.INCOME, new Date());
 
-
-        Controller controller = new Controller();
-
-        controller.save(tr1);
+        Controller.save(tr1);
     }
 }

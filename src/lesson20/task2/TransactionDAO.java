@@ -8,10 +8,10 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class TransactionDAO {
-    private Transaction[] transactions = new Transaction[10];
-    private Utils utils = new Utils();
+    private static Transaction[] transactions = new Transaction[10];
+    private static Utils utils = new Utils();
 
-    public Transaction save(Transaction transaction) throws Exception/*LimitExceeded*/ {
+    public static Transaction save(Transaction transaction) throws Exception/*LimitExceeded*/ {
 //        сумма транзакции больше указанного лимита +
 //        сумма транзакции за день больше дневного лимита +
 //        количество транзакций за день больше указанного лимита +
@@ -32,7 +32,7 @@ public class TransactionDAO {
         throw new InternalServerException("Unexpected error transaction: " + transaction.getId());
     }
 
-    private void validate(Transaction transaction) throws Exception {
+    private static void validate(Transaction transaction) throws Exception {
 
         if (!checkAmount(transaction))
             throw new LimitExceeded("Transaction limit exceed " + transaction.getId() + ". Can't be saved");
@@ -46,12 +46,11 @@ public class TransactionDAO {
         if (!checkCity(transaction))
             throw new BadRequestException("Transaction's city  " + transaction.getId() + ". Can't be saved");
 
-
         if (!freePlace(transaction))
             throw new InternalServerException("Transaction " + transaction.getId() + " can't be saved because of out of space");
     }
 
-    Transaction[] transactionList() throws Exception {
+    public static Transaction[] transactionList() throws Exception {
 
         int count = 0;
         for (Transaction tr : transactions) {
@@ -70,7 +69,7 @@ public class TransactionDAO {
 
     }
 
-    Transaction[] transactionList(String city) throws Exception {
+    public static Transaction[] transactionList(String city) throws Exception {
 
         if (city == null)
             throw new InternalServerException("City is null");
@@ -91,7 +90,7 @@ public class TransactionDAO {
         return trCityList;
     }
 
-    Transaction[] transactionList(int amount) throws Exception {
+    public static Transaction[] transactionList(int amount) throws Exception {
 
         if (amount == 0)
             throw new InternalServerException("Amount is 0");
@@ -112,7 +111,7 @@ public class TransactionDAO {
         return trAmountList;
     }
 
-    private Transaction[] getTransactionsPerDay(Date dateOfCurTransaction) {
+    private static Transaction[] getTransactionsPerDay(Date dateOfCurTransaction) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(dateOfCurTransaction);
         int month = calendar.get(Calendar.MONTH);
@@ -147,13 +146,13 @@ public class TransactionDAO {
         return result;
     }
 
-    private boolean checkAmount(Transaction transaction) {
+    private static boolean checkAmount(Transaction transaction) {
         if (transaction.getAmount() <= utils.getLimitSimpleTransactionAmount())
             return true;
         return false;
     }
 
-    private int sum(Transaction transaction) {
+    private static int sum(Transaction transaction) {
         int sum = 0;
         for (Transaction tr : getTransactionsPerDay(transaction.getDateCreated())) {
             sum += tr.getAmount();
@@ -161,7 +160,7 @@ public class TransactionDAO {
         return sum;
     }
 
-    private int count(Transaction transaction) {
+    private static int count(Transaction transaction) {
         int count = 0;
         for (Transaction tr : getTransactionsPerDay(transaction.getDateCreated())) {
             count++;
@@ -169,7 +168,7 @@ public class TransactionDAO {
         return count;
     }
 
-    private boolean checkCity(Transaction transaction) {
+    private static boolean checkCity(Transaction transaction) {
         for (String str : utils.getCities()) {
             if (str.equals(transaction.getCity()))
                 return true;
@@ -177,7 +176,7 @@ public class TransactionDAO {
         return false;
     }
 
-    private boolean freePlace(Transaction transaction) {
+    private static boolean freePlace(Transaction transaction) {
         for (Transaction tr : transactions) {
             if (tr == null)
                 return true;

@@ -29,7 +29,7 @@ public class Controller {
         for (int i = 0; i < storage.getFiles().length; i++) {
             if (storage.getFiles()[i] != null && storage.getFiles()[i].equals(file)) {
                 storage.getFiles()[i] = null;
-//                System.out.println("File " + file.getId() + " was deleted from the Storage " + storage.getId());
+//                Sys.out.println("File " + file.getId() + " was deleted from the Storage " + storage.getId());
                 return;
             }
         }
@@ -53,7 +53,7 @@ public class Controller {
         try {
             put(storageTo, findFileById(storageFrom, id));
             delete(storageFrom, findFileById(storageFrom, id));
-//            System.out.println("File " + id + " was transferred from the storage " + storageFrom.getId() + " to the storage " + storageTo.getId());
+//            Sys.out.println("File " + id + " was transferred from the storage " + storageFrom.getId() + " to the storage " + storageTo.getId());
         } catch (Exception e) {
             throw new Exception("Can't transfer file " + id + "from the storage " + storageFrom.getId() + " to the storage " + storageTo.getId());
         }

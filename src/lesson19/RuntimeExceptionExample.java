@@ -23,9 +23,9 @@ public class RuntimeExceptionExample {
 
     private static void npe(Object object){
 //        try {
-//            System.out.println(object.hashCode());
+//            Sys.out.println(object.hashCode());
 //        }catch (NullPointerException e){
-//            System.out.println();
+//            Sys.out.println();
 //        }
 
         if (object != null){

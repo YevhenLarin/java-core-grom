@@ -58,7 +58,7 @@ public class Demo {
 
         //TODO -
         //поиск комнаты всеми реализациям API
-        //System.out.println(Arrays.deepToString(controller.requestRooms(300, 1, "Днепр", "Дн2")));
+        //Sys.out.println(Arrays.deepToString(controller.requestRooms(300, 1, "Днепр", "Дн2")));
 
         //нахождение общих комнат у двух API +
         System.out.println(Arrays.deepToString(controller.check(bookingComAPI, tripAdvisorAPI)));

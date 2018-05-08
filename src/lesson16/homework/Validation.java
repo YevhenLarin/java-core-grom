@@ -4,25 +4,25 @@ import java.util.Arrays;
 
 public class Validation {
     public static void main(String[] args) {
-        //System.out.println("true - " + validate("https://www.gmail.com"));
-//        System.out.println("true - " + validate("http://www.gmail.com"));
-//        System.out.println("false - " + validate("https://.com"));
-//        System.out.println("false - " + validate("https://com"));
-//        System.out.println("false - " + validate("https://www.gmail.ua"));
-//        System.out.println("false - " + validate("www.gmail.com"));
-//        System.out.println("false - " + validate("gmail.com"));
-//        System.out.println("true - " + validate("https://gmail.com"));
-//        System.out.println("true - " + validate("https://www.com"));
-//        System.out.println("true - " + validate("https://www.www.com"));
-//        System.out.println("false - " + validate(""));
-//        System.out.println("false - " + validate("                  "));
-//        System.out.println("false - " + validate("(*&%*$*%*"));
-//        System.out.println("false - " + validate("https://www . gmail  .  com"));
-//        System.out.println("false - " + validate(null));
-        //System.out.println("false - " + validate("https://https://https://www.www.com"));
-//        System.out.println("false - " + validate("https://www.gmail.com.org.net"));
+        //Sys.out.println("true - " + validate("https://www.gmail.com"));
+//        Sys.out.println("true - " + validate("http://www.gmail.com"));
+//        Sys.out.println("false - " + validate("https://.com"));
+//        Sys.out.println("false - " + validate("https://com"));
+//        Sys.out.println("false - " + validate("https://www.gmail.ua"));
+//        Sys.out.println("false - " + validate("www.gmail.com"));
+//        Sys.out.println("false - " + validate("gmail.com"));
+//        Sys.out.println("true - " + validate("https://gmail.com"));
+//        Sys.out.println("true - " + validate("https://www.com"));
+//        Sys.out.println("true - " + validate("https://www.www.com"));
+//        Sys.out.println("false - " + validate(""));
+//        Sys.out.println("false - " + validate("                  "));
+//        Sys.out.println("false - " + validate("(*&%*$*%*"));
+//        Sys.out.println("false - " + validate("https://www . gmail  .  com"));
+//        Sys.out.println("false - " + validate(null));
+        //Sys.out.println("false - " + validate("https://https://https://www.www.com"));
+//        Sys.out.println("false - " + validate("https://www.gmail.com.org.net"));
               System.out.println("false - " + validate("https://http://https://www.www.com.com.org.net"));
-//        System.out.println("false - " + validate("https://https:/https//www.www.com"));
+//        Sys.out.println("false - " + validate("https://https:/https//www.www.com"));
     }
 
     public static boolean validate(String adress) {
@@ -54,7 +54,7 @@ public class Validation {
 //        if (str.length > 2)
 //            return false;
 //
-//        System.out.println(adress);
+//        Sys.out.println(adress);
 //
 //        char[] ch = str[1].trim().toCharArray();
 //        for (char c : ch){
@@ -62,7 +62,7 @@ public class Validation {
 //                return false;
 //        }
 //
-//        System.out.println(adress);
+//        Sys.out.println(adress);
 
 
         adress = adress.replace(".com", "");

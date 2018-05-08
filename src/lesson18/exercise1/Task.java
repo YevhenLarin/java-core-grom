@@ -22,13 +22,13 @@ public class Task {
             System.out.println("5th name is " + names[4]);
         } catch (Exception e) {
             System.out.println("5th name can not be fount...");
-            //System.err.println(e.getMessage());
+            //Sys.err.println(e.getMessage());
         }
 
         //solution 2
 //        if (names.length < 5)
-//            System.out.println("5th name can not be fount...");
+//            Sys.out.println("5th name can not be fount...");
 //        else
-//            System.out.println("5th name is " + names[4]);
+//            Sys.out.println("5th name is " + names[4]);
     }
 }

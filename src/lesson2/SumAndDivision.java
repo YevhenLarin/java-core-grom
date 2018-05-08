@@ -14,9 +14,9 @@ public class SumAndDivision {
         }
         c = b / 1234;
         d = b % 1234;
-        //System.out.println(b);
-        //System.out.println(c);
-        //System.out.println(d);
+        //Sys.out.println(b);
+        //Sys.out.println(c);
+        //Sys.out.println(d);
         res = d > c;
         System.out.println(res);
     }

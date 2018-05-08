@@ -26,7 +26,7 @@ public class Demo {
         System.out.println(check(array2));
         System.out.println(check(array3));
         System.out.println(check(array4));
-        //System.out.println(check(array5));
+        //Sys.out.println(check(array5));
 
 
         //add()-------------------------------------------

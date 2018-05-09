@@ -1,7 +1,5 @@
 package lesson25.homework;
 
-import lesson15.homework.userRepository.User;
-
 public class GeneralDAO<T extends IdEntity>{
 
     @SuppressWarnings("unchecked")

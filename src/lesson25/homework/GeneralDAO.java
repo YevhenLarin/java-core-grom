@@ -9,7 +9,7 @@ public class GeneralDAO<T extends IdEntity>{
         if (t.getId() <= 0)
             throw new Exception("id can't be negative");
 
-        if (findById(t.getId()) == null)
+        if (findById(t.getId()) != null)
             throw new Exception("File with id " + t.getId() + " already exist");
     }
 

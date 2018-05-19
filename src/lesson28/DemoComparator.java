@@ -20,18 +20,18 @@ public class DemoComparator {
         System.out.println(capabilities);
         System.out.println();
 
-        //IsActiveComparator
-        System.out.println("IsActiveComparator");
-        capabilities.sort(new IsActiveComparator());
-        System.out.println(capabilities);
-        System.out.println();
-
-        //DateComparator
-        System.out.println("DateComparator");
-        capabilities.sort(new DateComparator());
-        System.out.println(capabilities);
-        System.out.println();
+//        //IsActiveComparator
+//        System.out.println("IsActiveComparator");
+//        capabilities.sort(new IsActiveComparator());
+//        System.out.println(capabilities);
+//        System.out.println();
 //
+//        //DateComparator
+//        System.out.println("DateComparator");
+//        capabilities.sort(new DateComparator());
+//        System.out.println(capabilities);
+//        System.out.println();
+
         //FullComparator
         System.out.println("FullComparator");
         capabilities.sort(new FullComparator());

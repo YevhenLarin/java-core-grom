@@ -16,36 +16,26 @@ public class FullComparator implements Comparator<Capability> {
 
         System.out.println("FullComparator is used");
 
-//        if (o1.getChannelName() != null && o2.getChannelName() != null && !o1.getChannelName().equals(o2))
-//            return o1.getChannelName().compareTo(o2.getChannelName());
-//        else if (o1.getFingerprint() != null && o2.getFingerprint() != null && !o1.getFingerprint().equals(o2))
-//            return o1.getFingerprint().compareTo(o2.getFingerprint());
-//        else if (o1.getDateCreated() != null && o2.getDateCreated() != null && !o1.getDateCreated().equals(o2))
-//            return o1.getDateCreated().compareTo(o2.getDateCreated());
-//        return 0;
+        if (commonCompare(o1.getChannelName(), o2.getChannelName()) != 0)
+            return commonCompare(o1.getChannelName(), o2.getChannelName());
 
+        if (commonCompare(o1.getFingerprint(), o2.getFingerprint()) != 0)
+            return commonCompare(o1.getFingerprint(), o2.getFingerprint());
 
-        if (o1.getChannelName() == null)
+        return commonCompare(o2.getDateCreated(), o1.getDateCreated());
+
+//        DateComparator dateComparator = new DateComparator();
+//        return dateComparator.compare(o1, o2);
+    }
+
+    private <T extends Comparable> int commonCompare(T t1, T t2) {
+        if (t1 == null)
             return 1;
-        if (o2.getChannelName() == null)
+        else if (t2 == null)
             return -1;
-        if (!o1.getChannelName().equals(o2))
-            return o1.getChannelName().compareTo(o2.getChannelName());
-
-        if (o1.getFingerprint() == null)
-            return 1;
-        if (o2.getFingerprint() == null)
-            return -1;
-        if (!o1.getFingerprint().equals(o2))
-            return o1.getFingerprint().compareTo(o2.getFingerprint());
-
-        if (o1.getDateCreated() == null)
-            return 1;
-        if (o2.getDateCreated() == null)
-            return -1;
-        if (!o1.getDateCreated().equals(o2.getDateCreated()))
-            return o1.getDateCreated().compareTo(o2.getDateCreated());
-
-        return 0;
+        else if (t1.equals(t2))
+            return 0;
+        else
+            return t1.compareTo(t2);
     }
 }

@@ -1,14 +1,14 @@
-package lesson27.homework;
+package lesson29.homework;
 
 import java.util.LinkedList;
 
 public class LinkedListTest {
 
     public static void main(String[] args) {
-        useList();
+        useHashSet();
     }
 
-    public static LinkedList<Order> useList() {
+    public static LinkedList<Order> useHashSet() {
         LinkedList<Order> list = new LinkedList<>();
 
         Order order1 = new Order(1001, 40, "UAH", "milk", "supermarket");

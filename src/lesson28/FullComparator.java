@@ -22,10 +22,7 @@ public class FullComparator implements Comparator<Capability> {
         if (commonCompare(o1.getFingerprint(), o2.getFingerprint()) != 0)
             return commonCompare(o1.getFingerprint(), o2.getFingerprint());
 
-        return commonCompare(o2.getDateCreated(), o1.getDateCreated());
-
-//        DateComparator dateComparator = new DateComparator();
-//        return dateComparator.compare(o1, o2);
+        return commonCompare(o1.getDateCreated(), o2.getDateCreated());
     }
 
     private <T extends Comparable> int commonCompare(T t1, T t2) {

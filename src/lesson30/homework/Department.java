@@ -23,7 +23,6 @@ public class Department {
     public String toString() {
         return "Department{" +
                 "type=" + type +
-                ", employees=" + employees +
                 '}';
     }
 }

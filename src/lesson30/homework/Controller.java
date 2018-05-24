@@ -6,6 +6,15 @@ import java.util.Set;
 public class Controller {
 
     private EmployeeDAO employeeDAO;
+    private ProjectDAO projectDAO;
+
+    public void setEmployeeDAO(EmployeeDAO employeeDAO) {
+        this.employeeDAO = employeeDAO;
+    }
+
+    public void setProjectDAO(ProjectDAO projectDAO) {
+        this.projectDAO = projectDAO;
+    }
 
     //список сотрудников, работающих над заданным проектом
     public ArrayList<Employee> employeesByProject(String projectName){
@@ -44,7 +53,7 @@ public class Controller {
 
     //список проектов, выполняемых для данного заказчика
     public ArrayList<Project> projectsByCustomer(Customer customer) {
-        return ProjectDAO.projectsByCustomer(customer);
+        return projectDAO.projectsByCustomer(customer);
     }
 
     //список сотрудников, участвующих в проектах, выполняемых для заданного заказчика

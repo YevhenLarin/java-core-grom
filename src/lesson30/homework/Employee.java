@@ -3,7 +3,7 @@ package lesson30.homework;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Employee extends ArrayList<Employee> {
+public class Employee {
     private String firstName;
     private String lastName;
     private Date dateHired;
@@ -49,10 +49,6 @@ public class Employee extends ArrayList<Employee> {
         return "Employee{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", dateHired=" + dateHired +
-                ", position=" + position +
-                ", department=" + department +
-                ", projects=" + projects +
                 '}';
     }
 }

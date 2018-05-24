@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class DepartmentDAO {
 
-    private static ArrayList<Department> departments = new ArrayList<>();
+    private static ArrayList<Department> departments;
 
     public DepartmentDAO(){
 

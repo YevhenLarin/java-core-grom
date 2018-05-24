@@ -4,10 +4,9 @@ import java.util.ArrayList;
 
 public class CustomerDAO {
 
-    private static ArrayList<Customer> customers = new ArrayList<>();
+    private static ArrayList<Customer> customers;
 
     public CustomerDAO() {
-
         Customer customer1 = new Customer("Bill", "USA", 10000);
         Customer customer2 = new Customer("Ivan", "Ukraine", 100);
         Customer customer3 = new Customer("Arnold", "Austria", 8000);

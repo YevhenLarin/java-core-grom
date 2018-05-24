@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class ProjectDAO {
 
-    private static ArrayList<Project> projects = new ArrayList<>();
-    private static ArrayList<Project> projects1 = new ArrayList<>();
-    private static ArrayList<Project> projects2 = new ArrayList<>();
-    private static ArrayList<Project> projects3 = new ArrayList<>();
-    private static ArrayList<Project> projects4 = new ArrayList<>();
+    private static ArrayList<Project> projects;
+    private static ArrayList<Project> projects1;
+    private static ArrayList<Project> projects2;
+    private static ArrayList<Project> projects3;
+    private static ArrayList<Project> projects4;
 
     public ProjectDAO() {
         Project project1 = new Project("space", CustomerDAO.getCustomers().get(0));

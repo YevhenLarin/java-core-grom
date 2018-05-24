@@ -9,8 +9,4 @@ public class FirmDAO {
     public ArrayList<Firm> getFirms() {
         return firms;
     }
-
-    public void setFirms(ArrayList<Firm> firms) {
-        this.firms = firms;
-    }
 }

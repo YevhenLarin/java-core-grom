@@ -15,16 +15,8 @@ public class Department {
         return type;
     }
 
-    public void setType(DepartmentType type) {
-        this.type = type;
-    }
-
     public ArrayList<Employee> getEmployees() {
         return employees;
-    }
-
-    public void setEmployees(ArrayList<Employee> employees) {
-        this.employees = employees;
     }
 
     @Override

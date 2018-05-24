@@ -15,24 +15,12 @@ public class Customer {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getCountry() {
         return country;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
     public int getMonthlyPay() {
         return monthlyPay;
-    }
-
-    public void setMonthlyPay(int monthlyPay) {
-        this.monthlyPay = monthlyPay;
     }
 
     @Override

@@ -18,32 +18,11 @@ public class Firm {
         return dateFounded;
     }
 
-    public void setDateFounded(Date dateFounded) {
-        this.dateFounded = dateFounded;
-    }
-
     public ArrayList<Department> getDepartments() {
         return departments;
     }
 
-    public void setDepartments(ArrayList<Department> departments) {
-        this.departments = departments;
-    }
-
     public ArrayList<Customer> getCustomers() {
         return customers;
-    }
-
-    public void setCustomers(ArrayList<Customer> customers) {
-        this.customers = customers;
-    }
-
-    @Override
-    public String toString() {
-        return "Firm{" +
-                "dateFounded=" + dateFounded +
-                ", departments=" + departments +
-                ", customers=" + customers +
-                '}';
     }
 }

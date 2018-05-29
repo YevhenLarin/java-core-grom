@@ -116,28 +116,28 @@ public class Demo {
 //        System.out.println(departments);
 
         //список сотрудников, работающих над заданным проектом
-//        System.out.println(controller.employeesByProject("space"));
+        System.out.println(controller.employeesByProject("space"));
 
         //список проектов, в которых участвует заданный сотрудник
-//        System.out.println(controller.projectsByEmployee(employee1));
+        System.out.println(controller.projectsByEmployee(employee1));
 
         //список сотрудников из заданного отдела, не участвующих ни в одном проекте
-//        System.out.println(controller.employeesByDepartmentWithoutProject(DepartmentType.SOFTWARE));
+        System.out.println(controller.employeesByDepartmentWithoutProject(DepartmentType.SOFTWARE));
 
         //список сотрудников, не участвующих ни в одном проекте
-//        System.out.println(controller.employeesWithoutProject());
+        System.out.println(controller.employeesWithoutProject());
 
         //список подчиненных для заданного руководителя (по всем проектам, которыми он руководит)
-//        System.out.println(controller.employeesByTeamLead(employee2));
+        System.out.println(controller.employeesByTeamLead(employee2));
 
         //список руководителей для заданного сотрудника (по всем проектам, в которых он участвует)
-//        System.out.println(controller.teamLeadsByEmployee(employee4));
+        System.out.println(controller.teamLeadsByEmployee(employee4));
 
         //список сотрудников, участвующих в тех же проектах, что и заданный сотрудник
-//        System.out.println(controller.employeesByProjectEmployee(employee1));
+        System.out.println(controller.employeesByProjectEmployee(employee1));
 
         //список проектов, выполняемых для данного заказчика
-//        System.out.println(controller.projectsByCustomer(customer1));
+        System.out.println(controller.projectsByCustomer(customer1));
 
         //список сотрудников, участвующих в проектах, выполняемых для заданного заказчика
         System.out.println(controller.employeeByCustomerProjects(customer1));

@@ -1,6 +1,5 @@
 package lesson31.homework;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,59 +10,55 @@ public class Solution {
         if (input.isEmpty())
             return null;
 
-        ArrayList<Character> chList = new ArrayList<>();
+        Map<Character, Integer> map = new HashMap<>();
 
-        for (int i = 0; i < input.length(); i++)
-            if (Character.isLetter(input.charAt(i)))
-                chList.add(input.charAt(i));
-
-        return  resMap(chList);
-    }
-
-    public static Map words(String input) {
-
-        ArrayList<String> strList = checkWords(input);
-
-        return resMap(strList);
-    }
-
-    //метод для создание результирующей Map
-    private static <T> Map resMap (ArrayList<T> arrayList) {
-
-        Map<T, Integer> map = new HashMap<>();
-
-        for (int i = 0; i < arrayList.size(); i++) {
-            if (!map.containsKey(arrayList.get(i))) {
-                map.put(arrayList.get(i), 1);
-            } else {
-                map.replace(arrayList.get(i), map.get(arrayList.get(i)) + 1);
-            }
+        for (char ch : input.toCharArray()) {
+            if (Character.isLetter(ch))
+                resMap(ch, map);
         }
         return map;
     }
 
     //метод для создания коллекции из слов входящего стринга
-    private static ArrayList<String> checkWords(String input) {
+    public static Map<String, Integer> words(String input) {
 
         if (input.isEmpty())
             return null;
 
         String[] strings = input.trim().split(" ");
 
-        ArrayList<String> checkWords = new ArrayList<>();
+        Map<String, Integer> map = new HashMap<>();
 
-        for (int i = 0; i < strings.length; i++) {
-            for (int j = 0; j < strings[i].length(); j++) {
-                if (!Character.isLetter(strings[i].charAt(j)))
-                    break;
-                if (j == strings[i].length() - 1 && strings[i].length() > 2) {
-                    checkWords.add(strings[i]);
-                }
+        for (String str : strings) {
+            if (wordValidation(str)) {
+                resMap(str, map);
             }
         }
-        if (checkWords.size() == 0)
-            return null;
-        return checkWords;
+        return map;
+    }
+
+    //метод для создания результирующей Map
+    private static <T> Map resMap(T el, Map<T, Integer> map) {
+
+        if (!map.containsKey(el)) {
+            map.put(el, 1);
+        } else {
+            map.replace(el, map.get(el) + 1);
+        }
+        return map;
+    }
+
+    //метод для валидации слова
+    private static boolean wordValidation(String input) {
+
+        if (input.length() <= 2)
+            return false;
+
+        for (char ch : input.toCharArray()) {
+            if (!Character.isLetter(ch))
+                return false;
+        }
+        return true;
     }
 }
 

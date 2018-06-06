@@ -15,7 +15,6 @@ public class Solution {
 
         while (n >= 0) {
             str = br.readLine().split(" ");
-
             if (!validateNumbers(str))
                 if (n == 0)
                     throw new IOException("Your numbers are wrong. Number of attempts exceeded");
@@ -50,6 +49,7 @@ public class Solution {
     }
 
     private static boolean numberIsDigit(String input) {
+
         for (char ch : input.toCharArray()) {
             if (!Character.isDigit(ch))
                 return false;

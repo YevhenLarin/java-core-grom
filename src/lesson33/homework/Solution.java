@@ -14,23 +14,23 @@ public class Solution {
         System.out.println("Enter file content to write in the file:");
 
         InputStreamReader reader = new InputStreamReader(System.in);
-        BufferedReader br = new BufferedReader(reader);
-        FileWriter wr = new FileWriter(path, true);
-        BufferedWriter bw = new BufferedWriter(wr);
+        BufferedReader bufferedReader = new BufferedReader(reader);
+        FileWriter writer = new FileWriter(path, true);
+        BufferedWriter bufferedWriter = new BufferedWriter(writer);
 
         try {
             String line;
-            while (!(line = br.readLine()).equals("wr")) {
-                bw.append("\n");
-                bw.append(line);
+            while (!(line = bufferedReader.readLine()).equals("wr")) {
+                bufferedWriter.append("\n");
+                bufferedWriter.append(line);
             }
         } catch (IOException e) {
             System.err.println("Can't write to file with path " + path);
         } finally {
-            IOUtils.closeQuietly(bw);
-            IOUtils.closeQuietly(wr);
+            IOUtils.closeQuietly(bufferedWriter);
+            IOUtils.closeQuietly(writer);
             IOUtils.closeQuietly(reader);
-            IOUtils.closeQuietly(br);
+            IOUtils.closeQuietly(bufferedReader);
         }
     }
 
@@ -41,26 +41,34 @@ public class Solution {
         BufferedReader br = new BufferedReader(reader);
 
         String path = br.readLine();
-        FileReader fileReader;
+        FileReader fileReader = null;
         try {
             fileReader = new FileReader(path);
-        }catch (FileNotFoundException e){
+            readFile(path);
+        } catch (FileNotFoundException e) {
             System.err.println("File with path " + path + " not found");
-            return;
+//            return;
+        } finally {
+            IOUtils.closeQuietly(reader);
+            IOUtils.closeQuietly(br);
+            IOUtils.closeQuietly(fileReader);
         }
+    }
 
-        br = new BufferedReader(fileReader);
+    private static void readFile(String path) throws FileNotFoundException {
+
+        FileReader fileReader = new FileReader(path);
+        BufferedReader br = new BufferedReader(fileReader);
 
         try {
             String line;
-            while ((line = br.readLine()) != null){
+            while ((line = br.readLine()) != null) {
                 System.out.println(line);
             }
-        }catch (IOException e){
+        } catch (IOException e) {
             System.err.println("Can't read file by path " + path);
         } finally {
             IOUtils.closeQuietly(br);
-            IOUtils.closeQuietly(reader);
             IOUtils.closeQuietly(fileReader);
         }
     }

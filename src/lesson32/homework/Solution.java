@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Solution {
-    public static int readNumbers() throws IOException {
+    public static int readNumbers() throws Exception {
 
         InputStreamReader reader = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(reader);
@@ -17,7 +17,7 @@ public class Solution {
             str = br.readLine().split(" ");
             if (!validateNumbers(str))
                 if (n == 0)
-                    throw new IOException("Your numbers are wrong. Number of attempts exceeded");
+                    throw new Exception("Your numbers are wrong. Number of attempts exceeded");
                 else
                     System.out.println("Your numbers are wrong. You have " + n + " attempts to try again");
             else

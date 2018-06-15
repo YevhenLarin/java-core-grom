@@ -34,8 +34,7 @@ public class ReadWriteFile {
         FileWriter writer = null;
         BufferedWriter bufferedWriter = null;
         try {
-            //TODO use other constructor
-
+//            writer = new FileWriter(new File("path"), true);
             writer = new FileWriter(path, true);
             bufferedWriter = new BufferedWriter(writer);
 

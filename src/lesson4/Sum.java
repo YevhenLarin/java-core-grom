@@ -2,12 +2,11 @@ package lesson4;
 
 public class Sum {
     public static void main(String[] args) {
-        System.out.println(compareSums(2, 5, 6, 7));
-
+        System.out.println(compareSums(2, 5, 6, 9));
     }
 
     public static boolean compareSums(int a, int b, int c, int d) {
-        return sum(a, b) > sum(c, d) ? true : false;
+        return sum(a, b) > sum(c, d);
     }
 
     public static int sum(int from, int to) {

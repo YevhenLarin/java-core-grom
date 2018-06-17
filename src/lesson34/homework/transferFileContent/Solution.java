@@ -21,7 +21,7 @@ public class Solution {
         }
     }
 
-    private static StringBuffer readFromFile(String path) {
+    private static StringBuffer readFromFile(String path) throws IOException{
         StringBuffer res = new StringBuffer();
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line;
@@ -30,27 +30,26 @@ public class Solution {
                 res.append(line);
             }
         } catch (IOException e) {
-            System.err.println("Reading from file " + path + " failed");
-            System.exit(0);
+            throw new IOException("Reading from file " + path + " failed");
         }
         return res;
     }
 
 
-    private static void writeToFile(String path, StringBuffer contentToWrite) {
+    private static void writeToFile(String path, StringBuffer contentToWrite) throws IOException{
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(path, true))) {
             bufferedWriter.append(contentToWrite);
         } catch (IOException e) {
-            System.err.println("Can't write to file");
+            throw new IOException("Can't write to file");
         }
     }
 
 
-    private static void delContentFromFile(String path) {
+    private static void delContentFromFile(String path) throws IOException{
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(path, false))) {
             bufferedWriter.append("");
         } catch (IOException e) {
-            System.err.println("Can't write to file");
+            throw new IOException("Can't write to file");
         }
     }
 
@@ -60,15 +59,11 @@ public class Solution {
         File fileTo = new File(fileToPath);
 
         if (!fileFrom.exists()) {
-//            throw new FileNotFoundException("File " + fileFrom + " does not exist");
-            System.err.println("File " + fileFrom + " does not exist");
-            System.exit(0);
+            throw new FileNotFoundException("File " + fileFrom + " does not exist");
         }
 
         if (!fileTo.exists()) {
-//            throw new FileNotFoundException("File " + fileTo + " does not exist");
-            System.err.println("File " + fileTo + " does not exist");
-            System.exit(0);
+            throw new FileNotFoundException("File " + fileTo + " does not exist");
         }
 
         if (!fileFrom.canRead() || !fileFrom.canWrite() || !fileTo.canWrite()) {

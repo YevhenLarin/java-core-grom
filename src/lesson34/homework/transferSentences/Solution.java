@@ -2,7 +2,7 @@ package lesson34.homework.transferSentences;
 
 import java.io.*;
 
-public class Solution{
+public class Solution {
 
     public static void transferSentences(String fileFromPath, String fileToPath, String word) throws Exception {
         validate(fileFromPath, fileToPath);
@@ -25,7 +25,7 @@ public class Solution{
         try {
             writeToFile(fileToPath, fileToContent);
             writeToFile(fileFromPath, fileFromContent);
-        }catch (Exception e){
+        } catch (Exception e) {
             writeToFile(fileToPath, backupToContent);
             writeToFile(fileFromPath, backupFromContent);
             System.err.println("Writing of file was incorrect");
@@ -33,7 +33,7 @@ public class Solution{
     }
 
 
-    private static StringBuffer readFromFile(String path) {
+    private static StringBuffer readFromFile(String path) throws IOException {
         StringBuffer res = new StringBuffer();
 
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
@@ -42,16 +42,13 @@ public class Solution{
                 res.append(line);
             }
         } catch (IOException e) {
-            System.err.println("Reading from file " + path + " failed");
-            //можно так сделать завершение выполнения программы? если правильно понял,
-            //то это как раз завершит выполнение всего кода, а не метода
-            System.exit(0);
+            throw new IOException("Reading from file " + path + " was failed");
+
         }
         return res;
     }
 
-
-    private static void writeToFile(String path, StringBuffer contentToWrite){
+    private static void writeToFile(String path, StringBuffer contentToWrite) {
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(path, false))) {
             bufferedWriter.append(contentToWrite);
         } catch (IOException e) {
@@ -65,15 +62,11 @@ public class Solution{
         File fileTo = new File(fileToPath);
 
         if (!fileFrom.exists()) {
-//            throw new FileNotFoundException("File " + fileFrom + " does not exist");
-            System.err.println("File " + fileFrom + " does not exist");
-            System.exit(0);
+            throw new FileNotFoundException("File " + fileFrom + " does not exist");
         }
 
         if (!fileTo.exists()) {
-//            throw new FileNotFoundException("File " + fileTo + " does not exist");
-            System.err.println("File " + fileTo + " does not exist");
-            System.exit(0);
+            throw new FileNotFoundException("File " + fileTo + " does not exist");
         }
 
         if (!fileFrom.canRead() || !fileFrom.canWrite() || !fileTo.canWrite()) {

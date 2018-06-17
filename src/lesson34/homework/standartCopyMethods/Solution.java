@@ -22,15 +22,11 @@ public class Solution {
         File fileTo = new File(fileToPath);
 
         if (!fileFrom.exists()) {
-//            throw new FileNotFoundException("File " + fileFrom + " does not exist");
-            System.err.println("File " + fileFrom + " does not exist");
-            System.exit(0);
+            throw new FileNotFoundException("File " + fileFrom + " does not exist");
         }
 
         if (!fileTo.exists()) {
-//            throw new FileNotFoundException("File " + fileTo + " does not exist");
-            System.err.println("File " + fileTo + " does not exist");
-            System.exit(0);
+            throw new FileNotFoundException("File " + fileTo + " does not exist");
         }
 
         if (!fileFrom.canRead() || !fileTo.canWrite()) {
